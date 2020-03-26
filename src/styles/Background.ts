@@ -9,27 +9,25 @@ interface Props {
 }
 
 export default styled.div<Props>`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: darkslategrey;
-  z-index: -1;
-
   > div {
     position: absolute;
-    border: 1px solid grey;
+    border: 1px solid #88888888;
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 1s;
+    }
 
     ${({ number }) =>
       Array.from(
         { length: number },
         (x, i) => css`
           &:nth-of-type(${i + 1}) {
-            top: ${randInt(100)}%;
-            left: ${randInt(100)}%;
-            width: ${randInt(5, 25)}%;
-            height: ${randInt(5, 25)}%;
+            top: ${randInt(100)}vh;
+            left: ${randInt(100)}vw;
+            width: ${randInt(5, 25)}vw;
+            height: ${randInt(5, 25)}vh;
           }
         `
       )}
