@@ -9,9 +9,14 @@ interface Props {
 }
 
 export default styled.div<Props>`
+  & + * {
+    position: relative;
+  }
+
   > div {
     position: absolute;
     border: 1px solid #88888888;
+    background-color: white;
     transition: all 0.5s;
 
     &:hover {

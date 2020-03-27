@@ -6,7 +6,9 @@ interface Props {
   number?: number;
 }
 
-const Background: React.FC<Props> = ({ number = 10 }) => (
+const DEFAULT_NUMBER = 15;
+
+const Background: React.FC<Props> = ({ number = DEFAULT_NUMBER }) => (
   <StyledBackground number={number}>
     {Array.from({ length: number }, (x, i) => (
       <div key={i} />
