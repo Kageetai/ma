@@ -1,7 +1,8 @@
 export default {
   colors: {
-    background: '#444444',
-    border: '#88888888',
+    background: '#444',
+    border: '#555',
     font: 'lightgray',
+    links: '#358d39',
   },
 };
