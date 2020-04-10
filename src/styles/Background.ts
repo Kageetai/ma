@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import theme from './theme';
+
 const randInt = (max: number, min: number = 0) =>
   Math.random() * (max - min) + min;
 
@@ -9,14 +11,19 @@ interface Props {
 }
 
 export default styled.div<Props>`
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: ${theme.colors.background};
+
   & + * {
     position: relative;
   }
 
   > div {
     position: absolute;
-    border: 1px solid #88888888;
-    background-color: white;
+    border: 1px solid ${theme.colors.border};
+    background-color: ${theme.colors.background};
     transition: all 0.5s;
 
     &:hover {
@@ -31,8 +38,8 @@ export default styled.div<Props>`
           &:nth-of-type(${i + 1}) {
             top: ${randInt(100)}vh;
             left: ${randInt(100)}vw;
-            width: ${randInt(5, 25)}vw;
-            height: ${randInt(5, 25)}vh;
+            width: ${randInt(100, 250)}px;
+            height: ${randInt(100, 250)}px;
           }
         `
       )}
