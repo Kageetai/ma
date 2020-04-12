@@ -1,10 +1,19 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, keyframes } from '@emotion/core';
 
 import theme from './theme';
 
 const randInt = (max: number, min: number = 0) =>
   Math.random() * (max - min) + min;
+
+const bounce = keyframes`
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.25);
+  }
+`;
 
 interface Props {
   number: number;
@@ -25,11 +34,12 @@ export default styled.div<Props>`
     border: 1px solid ${theme.colors.border};
     background-color: ${theme.colors.background};
     transition: all 0.5s;
+    animation: ${bounce} 10s ease infinite alternate;
 
-    &:hover {
-      transform: scale(1.1);
-      transition: all 1s;
-    }
+    //&:hover {
+    //  transform: scale(1.1);
+    //  transition: all 1s;
+    //}
 
     ${({ number }) =>
       Array.from(
@@ -40,6 +50,8 @@ export default styled.div<Props>`
             left: ${randInt(100)}vw;
             width: ${randInt(100, 250)}px;
             height: ${randInt(100, 250)}px;
+            animation-delay: ${randInt(1, 5)}s;
+            animation-duration: ${randInt(10, 20)}s;
           }
         `
       )}
